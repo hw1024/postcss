@@ -1,0 +1,32 @@
+
+$color: #666; 
+$column_layout: 3;
+$social: twitter, facebook, youtube;
+/*测试Precss*/ 
+.precss {
+    color: $color; /* 变量测试 */ 
+    @if $column_layout == 2 {
+    	font-size: 14px;
+	} @else {
+		font-size: 16px;
+	}/* 条件 */ 
+	@for $i from 1 to 3 { 
+		p:nth-of-type($i) { 
+			margin-left: calc( 100% / $i ); 
+		}
+	}
+	@each $icon in ($social){ 
+		.icon-$(icon) { 
+			background: url('img/$(icon).png'); 
+		} 
+	}/* 循环:@for和@each */ 
+    .child1 {
+        color: green;
+    }
+    &.active {
+        font-weight: bold;
+    }
+    &:hover {
+        font-size: 18px;
+    }
+}
